@@ -31,7 +31,8 @@ st.markdown(hide_streamlit_nav, unsafe_allow_html=True)
 # Load Lottie Animation
 def load_lottiefile(filepath: str):
     try:
-        with open(filepath, "r") as f:
+        full_path = os.path.join(os.path.dirname(__file__), filepath)
+        with open(full_path, "r") as f:
             return json.load(f)
     except Exception as e:
         st.error(f"Error loading Lottie file: {e}")
