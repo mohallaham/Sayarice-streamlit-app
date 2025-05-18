@@ -8,7 +8,7 @@ import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu
 import json
 import os
-
+from os import path
 # Hide Streamlit's default sidebar navigation
 hide_streamlit_nav = """
 <style>
