@@ -29,9 +29,8 @@ st.set_page_config(
 )
 
 # Load Lottie Animation
-
 def load_lottiefile(filename: str):
-    """Load Lottie animation from assets/animations/"""
+    """Load Lottie file from assets/animations/ folder"""
     try:
         path = os.path.join(os.path.dirname(__file__), "assets", "animations", filename)
         with open(path, "r") as f:
@@ -40,9 +39,10 @@ def load_lottiefile(filename: str):
         st.error(f"Animation not found: {e}")
         return None
 
+
 # Custom Sidebar with option_menu
 with st.sidebar:
-    lottie = load_lottiefile("C:/Users/user/Downloads/com 1  unscreen.json")  # Update path
+    lottie = load_lottiefile("sayarice_animation.json"))  # Update path
     if lottie:
         st_lottie(
             lottie,
