@@ -4,7 +4,7 @@ import pandas as pd
 import os
 
 # Define the database path
-DB_PATH = "Cars_DB.db"
+DB_PATH = os.path.join(os.path.dirname(__file__), "Cars_DB.db")
 
 def initialize_db():
     """
@@ -202,17 +202,14 @@ def initialize_db():
         """)
     
     try:
-        # Also create or verify the Cars_Data table
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='Cars_Data'")
-        cars_data_exists = cursor.fetchone() is not None
-        
-        if not cars_data_exists:
-            if os.path.exists("C:/Users/user/enriched_cars_data_4.csv"):
-                df = pd.read_csv("C:/Users/user/enriched_cars_data_4.csv")
+        if not cursor.fetchone():
+            csv_path = os.path.join(os.path.dirname(__file__), "data", "enriched_cars_data_4.csv")
+            if os.path.exists(csv_path):
+                df = pd.read_csv(csv_path)
                 df.to_sql('Cars_Data', conn, if_exists='replace', index=False)
     except Exception as e:
         print(f"Error creating Cars_Data table: {e}")
-    
 
     # Check if predicted_non_electric table exists
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='predicted_non_electric'")
