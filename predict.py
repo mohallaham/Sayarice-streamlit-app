@@ -12,9 +12,10 @@ class CarPricePredictor:
     """Car price predictor with separate models and feature sets for electric/non-electric"""
     
 class CarPricePredictor:
+
     def __init__(self,
-                 non_electric_model_path: str = "D:/mohammed/UNI/Dynamic Pricing for Used Cars in Jordan/models/non_electric.cbm",
-                 electric_model_path: str = "D:/mohammed/UNI/Dynamic Pricing for Used Cars in Jordan/models/electric.cbm"):
+                 non_electric_model_path: str = os.path.join(os.path.dirname(__file__), "models", "non_electric.cbm"),
+                 electric_model_path: str = os.path.join(os.path.dirname(__file__), "models", "electric.cbm")):
         """
         Initialize predictor with default model paths
         
