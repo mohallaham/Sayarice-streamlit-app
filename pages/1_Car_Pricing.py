@@ -63,35 +63,11 @@ exterior_options = set(item for sublist in exterior_options for item in sublist)
 interior_options = set(item for sublist in interior_options for item in sublist)
 tech_options = set(item for sublist in tech_options for item in sublist)
 
-# Load Lottie Animation
-def load_lottiefile(filepath: str):
-    try:
-        full_path = os.path.join(os.path.dirname(__file__), "..", filepath)
-        with open(full_path, "r") as f:
-            return json.load(f)
-    except Exception as e:
-        st.error(f"Error loading Lottie file: {e}")
-        return None
 
 # Create sidebar with navigation
 try:    
-    lottie = load_lottiefile("C:/Users/user/Downloads/com 1  unscreen.json")
-
     with st.sidebar:
-        if lottie:
-            st_lottie(
-                lottie,
-                speed=1,
-                reverse=False,
-                loop=False,
-                quality="high",
-                height=150,
-                width=250,
-                key=None,
-            )
-        # Add a separator
-        st.markdown("---")
-        
+       
         # Navigation menu - Modified to include Home
         selected = option_menu(
             menu_title='Navigation',
