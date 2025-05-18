@@ -7,6 +7,7 @@ from streamlit_lottie import st_lottie
 import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu
 import json
+import os
 
 # Hide Streamlit's default sidebar navigation
 hide_streamlit_nav = """
