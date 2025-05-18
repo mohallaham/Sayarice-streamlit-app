@@ -5,10 +5,10 @@ from streamlit_lottie import st_lottie
 import json
 
 # Hide Streamlit's default sidebar navigation and adjust padding
-st.set_page_config(
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+# st.set_page_config(
+#     layout="wide",
+#     initial_sidebar_state="expanded"
+# )
 
 hide_streamlit_nav = """
 <style>
