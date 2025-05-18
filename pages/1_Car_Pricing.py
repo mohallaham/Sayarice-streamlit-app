@@ -34,7 +34,14 @@ def is_electric_fun():
 tables_existed = initialize_db()
 
 # importing dataset
-df = pd.read_csv(os.path.join(os.path.dirname(__file__), "..", "data", "enriched_cars_data_4.csv"))
+# df = pd.read_csv(os.path.join(os.path.dirname(__file__), "..", "data", "enriched_cars_data_4.csv"))
+try:
+    df = pd.read_csv("data/enriched_cars_data_4.csv")
+except FileNotFoundError:
+    # Option 2: More robust path handling
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(current_dir, "..", "data", "enriched_cars_data_4.csv")
+    df = pd.read_csv(csv_path)
 car_make_model = df.groupby('Make')['Model'].unique().apply(list).to_dict()
 city_neighborhood = df.groupby('City')['Neighborhood'].unique().apply(list).to_dict()
 car_model_trim = df.groupby('Model')['Trim'].unique().apply(list).to_dict()
