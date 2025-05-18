@@ -17,25 +17,27 @@ hide_streamlit_nav = """
 st.markdown(hide_streamlit_nav, unsafe_allow_html=True)
 
 # Disable Streamlit's automatic sidebar for pages
-# st.set_page_config(
-#     page_title="𝓢𝓪𝔂𝓪𝓻𝓲𝓬𝓮",
-#     layout="wide",
-#     initial_sidebar_state="expanded",
-#     menu_items={
-#         'Get Help': None,
-#         'Report a bug': None,
-#         'About': None  # Hides the automatic "About" section
-#     }
-# )
+st.set_page_config(
+    page_title="𝓢𝓪𝔂𝓪𝓻𝓲𝓬𝓮",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None  # Hides the automatic "About" section
+    }
+)
 
 # Load Lottie Animation
-def load_lottiefile(filepath: str):
+
+def load_lottiefile(filename: str):
+    """Load Lottie animation from assets/animations/"""
     try:
-        full_path = os.path.join(os.path.dirname(__file__), filepath)
-        with open(full_path, "r") as f:
+        path = os.path.join(os.path.dirname(__file__), "assets", "animations", filename)
+        with open(path, "r") as f:
             return json.load(f)
     except Exception as e:
-        st.error(f"Error loading Lottie file: {e}")
+        st.error(f"Animation not found: {e}")
         return None
 
 # Custom Sidebar with option_menu
