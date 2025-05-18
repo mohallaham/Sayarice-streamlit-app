@@ -3,7 +3,16 @@ from streamlit_option_menu import option_menu
 from streamlit_lottie import st_lottie
 import json
 import os
-
+st.set_page_config(
+    page_title="𝓢𝓪𝔂𝓪𝓻𝓲𝓬𝓮",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None  # Hides the automatic "About" section
+    }
+)
 # Create pages directory if it doesn't exist
 # This is needed for hiding the default Streamlit pages
 os.makedirs("pages", exist_ok=True)
@@ -17,16 +26,7 @@ hide_streamlit_nav = """
 st.markdown(hide_streamlit_nav, unsafe_allow_html=True)
 
 # Disable Streamlit's automatic sidebar for pages
-st.set_page_config(
-    page_title="𝓢𝓪𝔂𝓪𝓻𝓲𝓬𝓮",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={
-        'Get Help': None,
-        'Report a bug': None,
-        'About': None  # Hides the automatic "About" section
-    }
-)
+
 
 # Load Lottie Animation
 def load_lottiefile(filename: str):
