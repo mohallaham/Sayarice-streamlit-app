@@ -37,20 +37,7 @@ st.markdown(hide_streamlit_nav, unsafe_allow_html=True)
 # Create sidebar with navigation
 try:    
     with st.sidebar:
-        if lottie:
-            st_lottie(
-                lottie,
-                speed=1,
-                reverse=False,
-                loop=False,
-                quality="high",
-                height=150,
-                width=250,
-                key=None,
-            )
-        # Add a separator
-        st.markdown("---")
-        
+       
         # Main navigation menu
         main_menu = option_menu(
             menu_title='Navigation',
