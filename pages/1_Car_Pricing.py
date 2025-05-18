@@ -34,7 +34,7 @@ def is_electric_fun():
 tables_existed = initialize_db()
 
 # importing dataset
-df = pd.read_csv("C:/Users/user/enriched_cars_data_4.csv")
+df = pd.read_csv(os.path.join(os.path.dirname(__file__), "..", "data", "enriched_cars_data_4.csv"))
 car_make_model = df.groupby('Make')['Model'].unique().apply(list).to_dict()
 city_neighborhood = df.groupby('City')['Neighborhood'].unique().apply(list).to_dict()
 car_model_trim = df.groupby('Model')['Trim'].unique().apply(list).to_dict()
