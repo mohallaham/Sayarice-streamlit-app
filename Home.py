@@ -17,16 +17,16 @@ hide_streamlit_nav = """
 st.markdown(hide_streamlit_nav, unsafe_allow_html=True)
 
 # Disable Streamlit's automatic sidebar for pages
-# st.set_page_config(
-#     page_title="𝓢𝓪𝔂𝓪𝓻𝓲𝓬𝓮",
-#     layout="wide",
-#     initial_sidebar_state="expanded",
-#     menu_items={
-#         'Get Help': None,
-#         'Report a bug': None,
-#         'About': None  # Hides the automatic "About" section
-#     }
-# )
+st.set_page_config(
+    page_title="𝓢𝓪𝔂𝓪𝓻𝓲𝓬𝓮",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None  # Hides the automatic "About" section
+    }
+)
 
 # Load Lottie Animation
 
