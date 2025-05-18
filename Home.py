@@ -42,7 +42,7 @@ def load_lottiefile(filename: str):
 
 # Custom Sidebar with option_menu
 with st.sidebar:
-    lottie = load_lottiefile("sayarice_animation.json"))  # Update path
+    lottie = load_lottiefile("sayarice_animation.json")  # Update path
     if lottie:
         st_lottie(
             lottie,
